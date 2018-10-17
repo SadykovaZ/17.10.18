@@ -37,6 +37,8 @@ public:
 	}
 };
 //
+
+
 void f(human &g)
 {
 
