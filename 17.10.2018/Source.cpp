@@ -36,7 +36,7 @@ public:
 		//age=obj.age;
 	}
 };
-//прооп
+//прооп прпрп
 
 
 void f(human &g)
