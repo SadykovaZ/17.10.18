@@ -9,9 +9,51 @@ using namespace std;
 //
 //class A
 //{
-//	number n;//вложеный обьект
+//	number n;//РІР»РѕР¶РµРЅС‹Р№ РѕР±СЊРµРєС‚
 //
 //};
+class vector_
+{
+	int* arr;
+	int size=0;
+public:
+	vector_()
+	{
+		arr = nullptr;
+	}
+	void pushBack(int number)
+	{
+		int* tmp = new int[size + 1];
+		for (int i = 0; i < size; i++)
+		{
+			tmp[i] = arr[i];
+		}
+		tmp[size] = number;
+		delete[]arr;
+		arr = tmp;
+		size++;
+	}
+	vector_(const vector_ &obj)
+	{
+		if (obj.size == 0)
+		{
+			this->arr = nullptr;
+			this->size = 0;
+			return;
+		}
+		this->arr = new int[obj.size];
+		for (int i = 0; i < obj.size; i++)
+		{
+			this->arr[i] = obj.arr[i];
+		}
+		this->size = obj.size;
+	}
+	~vector_()
+	{
+		delete[] arr;
+
+	}
+};
 class human
 {
 	char* name;
@@ -29,14 +71,14 @@ public:
 	human(const human &obj)
 	{
 		this->name = new char[strlen(obj.name) + 1];
-		////пока ничего нет кроме оболочки
+		////РїРѕРєР° РЅРёС‡РµРіРѕ РЅРµС‚ РєСЂРѕРјРµ РѕР±РѕР»РѕС‡РєРё
 		//name=new char[strlen(obj.name)+1];
 		//strcpy_s(name, strlen(obj.name) + 1, obj.name);
 		//
 		//age=obj.age;
 	}
 };
-//прооп прпрп
+//РїСЂРѕРѕРї РїСЂРїСЂРї
 
 
 void f(human &g)
@@ -93,15 +135,15 @@ void main()
 	drob d2;
 	d2.x = 5;
 	//int z = 5;
-	////инициализация при создании
+	////РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё
 	//int a = z;
 	//cout << a;
 	human h("Pt");
-	//передача обьекта в функцию по значению
+	//РїРµСЂРµРґР°С‡Р° РѕР±СЊРµРєС‚Р° РІ С„СѓРЅРєС†РёСЋ РїРѕ Р·РЅР°С‡РµРЅРёСЋ
 	//f(h);
-	//инициализация при создании
+	//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё
 	human h2 = h;
 	human h2(h);
-	//возврат обьекта из функции по значению
+	//РІРѕР·РІСЂР°С‚ РѕР±СЊРµРєС‚Р° РёР· С„СѓРЅРєС†РёРё РїРѕ Р·РЅР°С‡РµРЅРёСЋ
 	human vasya = get_vasya();
 }
