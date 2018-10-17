@@ -28,11 +28,12 @@ public:
 
 	human(const human &obj)
 	{
-		//пока ничего нет кроме оболочки
-		name=new char[strlen(obj.name)+1];
-		strcpy_s(name, strlen(obj.name) + 1, obj.name);
-		
-		age=obj.age;
+		this->name = new char[strlen(obj.name) + 1];
+		////пока ничего нет кроме оболочки
+		//name=new char[strlen(obj.name)+1];
+		//strcpy_s(name, strlen(obj.name) + 1, obj.name);
+		//
+		//age=obj.age;
 	}
 };
 //
@@ -56,13 +57,16 @@ class drob
 {
 public:
 	int x, y;
-	drob()
+	drob(const drob&obj)
 	{
-
+		this->x = obj.x;
+		this->y = obj.y;
 	}
-	drob(int a, int b)
+	drob(int x=0, int y=1)
 	{
-
+		/*this->x = x;
+		(*this).x = x;
+*/
 	}
 };
 void main()
